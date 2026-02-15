@@ -37,40 +37,41 @@ Loan_Status: Approved (Y) or Not Approved (N)
 c. Model Evaluation
 Several machine learning algorithms were applied, and their performance was assessed using accuracy, AUC, precision, recall, F1-score, and MCC.
 
-Model               Accuracy   AUC     Precision   Recall   F1 Score   MCC
+Model                 Accuracy    AUC       Precision   Recall     F1 Score   MCC
 -------------------------------------------------------------------------------
-Logistic Regression   0.790    0.733     0.800      0.930     0.860     0.471
-Decision Tree         0.758    0.729     0.769      0.930     0.842     0.374
-KNN                   0.806    0.733     0.804      0.953     0.872     0.516
-Naive Bayes           0.774    0.743     0.796      0.907     0.848     0.431
-Random Forest         0.758    0.747     0.792      0.884     0.835     0.394
-XGBoost               0.806    0.781     0.804      0.953     0.872     0.516
+Logistic Regression   0.837398   0.766873   0.809524    1.000000   0.894737   0.619240
+Decision Tree         0.674797   0.715789   0.800000    0.705882   0.750000   0.294723
+KNN                   0.821138   0.696749   0.800000    0.988235   0.884211   0.569458
+Naive Bayes           0.837398   0.763467   0.815534    0.988235   0.893617   0.611360
+Random Forest         0.813008   0.771053   0.810000    0.952941   0.875676   0.536759
+XGBoost               0.829268   0.777399   0.813725    0.976471   0.887701   0.585097
 
 d. Observations
 Model                Key Insights
 -------------------------------------------------------------------------------
-Logistic Regression  Strong recall (0.93) and balanced precision (0.80).
-                     Produces a solid F1-score (0.86). AUC is moderate,
-                     showing limited separation compared to XGBoost.
+Logistic Regression  Excellent recall (1.0) with strong accuracy (0.84) and F1 (0.89).
+                     Very reliable at identifying approved loans, though precision
+                     shows some false positives.
 
-Decision Tree        Recall is high, but precision and MCC are weaker.
-                     Model may be prone to overfitting and less consistent
-                     than ensemble methods.
+Decision Tree        Weakest performer overall. Accuracy (0.67) and MCC (0.29) are low.
+                     Recall is modest (0.71), suggesting instability and possible
+                     overfitting compared to ensemble methods.
 
-kNN                  Delivers high accuracy (0.81) and recall (0.95).
-                     Strong F1-score (0.87) and MCC (0.52) suggest balanced
-                     performance. One of the top-performing models.
+kNN                  High accuracy (0.82) and recall (0.99). Balanced F1 (0.88) and
+                     MCC (0.57). Performs strongly, though AUC is lower, meaning
+                     weaker class separation.
 
-Naive Bayes          Good recall (0.91) with moderate precision and AUC.
-                     Performs reasonably well but slightly behind kNN
-                     and XGBoost.
+Naive Bayes          Matches Logistic Regression closely. Accuracy (0.84), recall (0.99),
+                     and F1 (0.89) are excellent. MCC (0.61) indicates solid correlation.
+                     A strong baseline model.
 
-Random Forest        Provides stable results with decent AUC (0.75),
-                     but accuracy and F1 are lower than kNN and XGBoost.
+Random Forest        Stable ensemble model. Accuracy (0.81) and recall (0.95) are strong.
+                     F1 (0.88) is competitive, but MCC (0.54) is slightly weaker than
+                     top performers.
 
-XGBoost              Best overall performer. Highest AUC (0.78), recall (0.95),
-                     F1-score (0.87), and MCC (0.52). Shows strong generalization
-                     and class separation ability.
+XGBoost              Best overall balance. Accuracy (0.83), recall (0.98), and F1 (0.89)
+                     are all strong. Highest AUC (0.78) shows superior class separation
+                     and generalization ability.
 
 e. Conclusion
 Among all tested models, XGBoost and kNN stand out as the most effective, consistently achieving high accuracy, recall, and F1-scores. XGBoost edges ahead with superior AUC, indicating better ability to distinguish between approved and rejected applications. Logistic Regression and Naive Bayes serve as reliable baselines, while Decision Tree lags due to stability issues. Ensemble methods (Random Forest, XGBoost) generally provide stronger generalization compared to single models.
